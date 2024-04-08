@@ -1,0 +1,64 @@
+#include <iostream>
+#include <vector>
+
+class Node {
+public:
+    int data;
+    int next_index; // index of the next node in the list
+
+   // Node(int val, int next) : data(val), next_index(next) {}
+   Node(int val,int next)
+   {
+       data=val;
+       next_index=next;
+   }
+};
+
+class LinkedList {
+private:
+    std::vector<Node> nodes;
+    //int nodes;
+    int head_index;
+
+public:
+    LinkedList() : head_index(-1) {}
+
+    void addNode(int val) {
+        int newNodeIndex = nodes.size();
+        nodes.emplace_back(val, -1);
+
+        if (head_index == -1) {
+            head_index = newNodeIndex;
+        } else {
+            int current_index = head_index;
+            while (nodes[current_index].next_index != -1) {
+                current_index = nodes[current_index].next_index;
+            }
+            nodes[current_index].next_index = newNodeIndex;
+        }
+    }
+
+    void displayList() {
+        if (head_index == -1) {
+            std::cout << "List is empty.\n";
+        } else {
+            int current_index = head_index;
+            while (current_index != -1) {
+                std::cout << nodes[current_index].data << " ";
+                current_index = nodes[current_index].next_index;
+            }
+            std::cout << std::endl;
+        }
+    }
+};
+
+int main() {
+    LinkedList list;
+    list.addNode(1);
+    list.addNode(2);
+    list.addNode(3);
+
+    list.displayList(); // Output: 1 2 3
+
+    return 0;
+}
