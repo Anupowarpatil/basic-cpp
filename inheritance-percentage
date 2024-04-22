@@ -1,0 +1,36 @@
+#include <iostream>
+class marks{
+    public: int maths,science,english;
+    public: void getdata()
+    {
+        std::cout<<"Enter your marks-"<<"\n";
+        std::cout<<"Maths:";
+        std::cin>>maths;
+        std::cout<<"Science:";
+        std::cin>>science;
+        std::cout<<"English:";
+        std::cin>>english;
+    }    
+};
+class total : public marks{
+    public: int total;
+    public: void calculateT()
+    {
+        total=maths+science+english;
+    }
+};
+class percentage : public total{
+    int per;
+    public: void calculateP()
+    {
+        per=total/3;
+        std::cout<<"Percentage:"<<per;
+    }
+};
+int main() {
+    percentage p;
+    p.getdata();
+    p.calculateT();
+    p.calculateP();
+    return 0;
+}
