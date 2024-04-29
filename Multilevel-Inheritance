@@ -1,0 +1,52 @@
+
+// Multilevel Inheritance
+#include <iostream>
+using namespace std;
+class base {
+public:
+	int a;
+	void getA()
+	{
+		cout << "Enter value of a: ";
+		cin >> a;
+	}
+};
+
+class derive1 : public base {
+public:
+	int b;
+	void getB()
+	{
+		cout << "Enter value of b: ";
+		cin >> b;
+	}
+};
+class derive2 : public derive1 {
+private:
+	int c;
+
+public:
+	void getC()
+	{
+		cout << "Enter value of c: ";
+		cin >> c;
+	}
+
+	// function to print sum
+	void sum()
+	{
+		int ans = a + b + c;
+		cout << "sum: " << ans;
+	}
+};
+int main()
+{
+	// object of sub class
+	derive2 obj;
+
+	obj.getA();
+	obj.getB();
+	obj.getC();
+	obj.sum();
+	return 0;
+}
