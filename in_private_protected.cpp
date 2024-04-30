@@ -1,3 +1,4 @@
+//this code is for to understand the concept of access modes in inheritance
 #include<iostream>
 using namespace std;
 class person{
