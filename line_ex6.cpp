@@ -21,7 +21,7 @@ class circle{
 		return false;
 	}
 	
-	bool isTangent(Line ln)
+	bool isTangent(Line &ln)
 	{
 		return true;
 	}
@@ -31,7 +31,7 @@ int main()
 {
 	circle ci;
 	Line ln;
-	bool tangent = ci.isTangent(Line ln);
+	bool tangent = ci.isTangent(Line &ln);
 	
 	if(tangent)
 	{
