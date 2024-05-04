@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class A {
+    int a, b;
+public:
+    A() {
+        a = 0;
+        b = 0;
+    }
+    void setA(int x) {
+        a = x;
+    }
+    void setB(int y) {
+        b = y;
+    }
+    int getA() {
+        return a;
+    }
+    int getB() {
+        return b;
+    }
+    friend int add(A& a);  
+};
+
+int add(A& a) {
+    return a.a + a.b;
+}
+
+int main() {
+    A abc;
+    abc.setA(4);
+    abc.setB(6);
+    cout << "A: " << abc.getA() << endl;
+    cout << "B: " << abc.getB() << endl;
+    cout << "Addition: " << add(abc) << endl; 
+    return 0;
+}
